@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#163b32" />
+    <title>稳定减脂提醒</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./assets/icon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-panel" aria-labelledby="appTitle">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow" id="todayLabel">今日计划</p>
+            <h1 id="appTitle">稳定减脂提醒</h1>
+          </div>
+          <button class="notify-button" id="notifyButton" aria-label="开启通知" title="开启通知">
+            <span aria-hidden="true">通知</span>
+          </button>
+        </div>
+
+        <div class="hero-progress">
+          <div class="progress-ring" aria-label="今日完成进度">
+            <span id="progressPercent">0%</span>
+          </div>
+          <div class="progress-copy">
+            <span id="progressText">0/5 已完成</span>
+            <strong id="progressMood">先完成早餐</strong>
+            <p>每天做到 80% 就很好，稳定比完美更重要。</p>
+          </div>
+        </div>
+
+        <div class="metric-grid" aria-label="今日关键规则">
+          <div>
+            <span>早餐</span>
+            <strong>蛋 + 果/奶</strong>
+          </div>
+          <div>
+            <span>晚餐</span>
+            <strong>不吃主食</strong>
+          </div>
+          <div>
+            <span>运动</span>
+            <strong>轻量完成</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Checklist</span>
+            <h2>今日打卡</h2>
+          </div>
+          <button class="text-button" id="resetButton">重置今日</button>
+        </div>
+        <div class="task-list" id="taskList"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Reminders</span>
+            <h2>提醒时间</h2>
+          </div>
+          <span class="status-pill" id="notifyStatus">未开启</span>
+        </div>
+        <div class="reminder-list" id="reminderList"></div>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Rules</span>
+            <h2>饮食标准</h2>
+          </div>
+          <span class="status-pill">80% 达成即可</span>
+        </div>
+        <div class="plan-grid">
+          <article class="plan-item">
+            <span class="meal-time">早餐</span>
+            <h3>茶叶蛋 2 个</h3>
+            <p>加苹果 1 个，或无糖酸奶 1 杯。</p>
+          </article>
+          <article class="plan-item">
+            <span class="meal-time">午餐</span>
+            <h3>米饭 1 拳 + 肉 1 掌</h3>
+            <p>蔬菜多吃，肉太少就加 1 个茶叶蛋。</p>
+          </article>
+          <article class="plan-item">
+            <span class="meal-time">晚餐</span>
+            <h3>鸡胸肉 + 大碗蔬菜</h3>
+            <p>不吃米饭、面、奶茶和零食。</p>
+          </article>
+          <article class="plan-item">
+            <span class="meal-time">自由餐</span>
+            <h3>每周 1 次</h3>
+            <p>不暴食，不喝含糖饮料，不连续两顿放飞。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <template id="taskTemplate">
+      <label class="task-row">
+        <input type="checkbox" />
+        <span class="task-check" aria-hidden="true"></span>
+        <span class="task-copy">
+          <span class="task-meta"></span>
+          <strong></strong>
+          <small></small>
+        </span>
+      </label>
+    </template>
+
+    <template id="reminderTemplate">
+      <article class="reminder-row">
+        <label class="switch">
+          <input type="checkbox" />
+          <span></span>
+        </label>
+        <div class="reminder-copy">
+          <strong></strong>
+          <small></small>
+        </div>
+        <input class="time-input" type="time" />
+      </article>
+    </template>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
